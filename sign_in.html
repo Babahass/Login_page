@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Login Form</title>
+        <style>
+            body {
+                margin: 0;
+font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                background-color: aliceblue;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                min-height: 100vh;
+            }
+            form {
+                background-color: white;
+                border-radius: 20px;
+                box-shadow: 5px 5px 10px gray;
+                width: 90%;
+                max-width: 400px;
+                padding: 20px;
+            }
+            h1 {
+                text-align: center;
+                font-size: 28px;
+                margin-bottom: 20px;
+            }
+            h3 {
+                text-align: center;
+                margin-bottom: 20px;
+                font-size: 16px;
+                color: #555;
+            }
+            label {
+                display: block;
+                margin: 10px 0 5px;
+                font-size: 14px;
+                color: #333;
+            }
+            input {
+                width: 90%;
+                height: 40px;
+                border: 1px solid #ccc;
+                border-radius: 20px;
+                padding: 0 10px;
+                margin-bottom: 15px;
+                box-shadow: 2px 1px 0px gray;
+            }
+            button {
+                background-color: rebeccapurple;
+                border: none;
+                border-radius: 10px;
+                width: 40%;
+                margin-left: 30%;
+                height: 40px;
+                color: white;
+                font-size: 16px;
+                cursor: pointer;
+            }
+            button:hover {
+                background-color: purple;
+                color: gray;
+            }
+            .forget_pass{
+                    
+                    padding-left: 60%;
+                    display: flex;
+                    font-size: small;
+            }
+            .option {
+                text-align: center;
+                margin: 20px 0;
+                font-size: 14px;
+                color: #777;
+            }
+            .icons ul {
+                display: flex;
+                justify-content: center;
+                gap: 20px;
+                padding: 0;
+                list-style: none;
+            }
+            .icons img {
+                border-radius: 50%;
+                height: 40px;
+                width: 40px;
+                cursor: pointer;
+                transition: transform 0.2s;
+            }
+            .icons img:hover {
+                transform: scale(1.1);
+            }
+            .option2 {
+                text-align: center;
+                margin-top: 20px;
+            }
+            .option2 a {
+                text-decoration: none;
+                color: rebeccapurple;
+                font-size: 14px;
+            }
+
+        </style>
+    </head>
+    <body>
+        <form id="form">
+            <h1>Sign In</h1>
+            <h3>Hey, Welcome Back! Please sign in to continue.</h3>
+    
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="Enter your email">
+
+            <label id="password">Password</label>
+            <input type="password" id="password" placeholder="Your Password">
+
+            <a class="forget_pass" href="#">Forget your password</a><br>
+
+            <button type="submit">Sign in</button>
+
+            <div class="option">--- Or sign up with ---</div>
+            <div class="icons">
+                <ul>
+                    <li><a href="https://google.com"><img src="/icon/google.jpg" alt="Google"></a></li>
+                    <li><a href="https://facebook.com"><img src="/icon/facebook.jpg" alt="Facebook"></a></li>
+                    <li><a href="https://twitter.com"><img src="/icon/X.jpg" alt="Twitter"></a></li>
+                </ul>
+            </div>
+
+            <div class="option2">
+                <a href="login.html">Want To Create Account?</a>
+            </div>
+        </form>
+        <script>
+            document.getElementById('form').addEventListener('submit',function(event){
+                event.preventDefault();
+                var email = document.getElementById('email').value;
+                var password = document.getElementById('password').value;
+
+                if(email === "" || password === ""){
+                    alert("Please fill in all fields");
+                    return;
+                }
+                var email_pattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+                if(!email_pattern.test(email)){
+                    alert("please enter a valid Email");
+                    return;
+                }
+                if(password.length < 8 ){
+                    alert("Password must be at least 8 characters");
+                }
+                alert('form succesfully submitted')
+            })
+        </script>
+    </body>
+</html>
